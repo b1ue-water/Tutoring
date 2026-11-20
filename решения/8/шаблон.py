@@ -1,13 +1,18 @@
+
 from itertools import *
 
-count_num = 0
-count_all_num = 1
+x = product('АЗКМУЫ', repeat=6)
+n = 0
 
-for i in product("АЛГОРИТМ", repeat=5):
+for word in x:
+    n += 1
+    word = ''.join(word)
+    
+    if n % 2 != 0 and word[0] != 'У' and word.count('Ы') == 1:
+        print(n, word)
 
-    if (i.count("И") >= 2) and (i[0] != 'Г') and (count_all_num % 2 != 0):
-        count_num += 1
 
-    count_all_num += 1
-
-print(count_num)
+"""
+   product(iterable, n) - когда есть повторения
+   set(product())
+   """
